@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/shared/Navbar";
 import { ShapeFollower } from "@/components/shared/ShapeFollower";
 import { SmoothScrollProvider } from "@/components/shared/SmoothScrollProvider";
 
-const inter = Inter({
+const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-sans",
 });
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} font-sans antialiased min-h-screen selection:bg-primary selection:text-primary-foreground text-step-1`}
+        className={`${outfit.variable} font-sans antialiased min-h-screen selection:bg-primary selection:text-primary-foreground text-step-1`}
       >
         <SmoothScrollProvider>
           <div className="noise" />

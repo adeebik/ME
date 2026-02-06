@@ -11,6 +11,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ProjectCard } from "@/components/shared/ProjectCard";
 import { AnimatedText } from "@/components/shared/AnimatedText";
+import { FlippingText } from "@/components/shared/FlippingText";
 import { SpotifyPlayer } from "@/components/shared/SpotifyPlayer";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -151,11 +152,11 @@ export default function Home() {
             </div>
             <div className="flex flex-col gap-2">
               <h1 className="hero-title text-3xl font-extrabold tracking-tight text-foreground sm:text-5xl">
-                Adeeb Khan —
+                Adeeb I K
               </h1>
-              <p className="hero-description text-xl text-muted-foreground font-medium">
-                Full Stack Developer & Designer.
-              </p>
+              <div className="hero-description text-xl text-muted-foreground font-medium flex gap-2">
+              <FlippingText words={["Software Engineer", "Backend Engineer", "Designer"]} />
+              </div>
             </div>
           </div>
           <div className="flex flex-col gap-3 items-start sm:items-end">

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Github, Sun, Moon, Linkedin, Mail } from "lucide-react";
+import { Github, Sun, Moon, Linkedin, Mail, Twitter } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export function Navbar() {
@@ -60,6 +60,13 @@ export function Navbar() {
           className="p-2 rounded-full hover:bg-muted transition-all duration-200 hover:scale-125 text-muted-foreground hover:text-foreground"
         >
           <Linkedin className="w-3.5 h-3.5" />
+        </Link>
+        <Link 
+          href="https://x.com/adeeebik" 
+          target="_blank" 
+          className="p-2 rounded-full hover:bg-muted transition-all duration-200 hover:scale-125 text-muted-foreground hover:text-foreground"
+        >
+          <Twitter className="w-3.5 h-3.5" />
         </Link>
         <Link 
           href="#contact" 
