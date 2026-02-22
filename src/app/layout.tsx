@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/shared/Navbar";
 import { ShapeFollower } from "@/components/shared/ShapeFollower";
 import { SmoothScrollProvider } from "@/components/shared/SmoothScrollProvider";
+import { Background } from "@/components/shared/Background";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({
       >
         <SmoothScrollProvider>
           <div className="noise" />
+          <Background />
           <ShapeFollower />
           <Navbar />
 

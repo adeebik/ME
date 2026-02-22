@@ -1,99 +1,25 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-
+import { useEffect, useState } from "react";
 
 export function Background() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let animationFrameId: number;
-    let particles: Particle[] = [];
-    
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      initParticles();
-    };
-
-    class Particle {
-      x: number;
-      y: number;
-      size: number;
-      speedX: number;
-      speedY: number;
-      opacity: number;
-
-      constructor() {
-        this.x = Math.random() * (canvas?.width || 0);
-        this.y = Math.random() * (canvas?.height || 0);
-        this.size = Math.random() * 2 + 0.5;
-        this.speedX = Math.random() * 0.5 - 0.25;
-        this.speedY = Math.random() * 0.5 - 0.25;
-        this.opacity = Math.random() * 0.5 + 0.1;
-      }
-
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        if (this.x > (canvas?.width || 0)) this.x = 0;
-        if (this.x < 0) this.x = (canvas?.width || 0);
-        if (this.y > (canvas?.height || 0)) this.y = 0;
-        if (this.y < 0) this.y = (canvas?.height || 0);
-      }
-
-      draw() {
-        if (!ctx) return;
-        const color = getComputedStyle(document.documentElement).getPropertyValue('--foreground').trim() || '255, 255, 255';
-        ctx.fillStyle = `rgba(${color.includes('oklch') ? '255, 255, 255' : '150, 150, 150'}, ${this.opacity})`;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-    }
-
-    const initParticles = () => {
-      particles = [];
-      const particleCount = Math.min((window.innerWidth * window.innerHeight) / 10000, 100);
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-      }
-    };
-
-    const animate = () => {
-      if (!ctx || !canvas) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      particles.forEach(particle => {
-        particle.update();
-        particle.draw();
-      });
-
-      animationFrameId = requestAnimationFrame(animate);
-    };
-
-    window.addEventListener('resize', resize);
-    resize();
-    animate();
-
-    return () => {
-      window.removeEventListener('resize', resize);
-      cancelAnimationFrame(animationFrameId);
-    };
+    setMounted(true);
   }, []);
 
+  if (!mounted) return null;
+
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 -z-10 h-full w-full bg-background transition-colors duration-1000"
-    />
+    <div className="fixed inset-0 -z-10 h-full w-full bg-background overflow-hidden">
+      {/* Subtle Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
+
+      {/* Animated Glowing Orbs */}
+      <div className="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] rounded-full bg-purple-400/30 mix-blend-multiply filter blur-[120px] opacity-70 animate-blob dark:bg-purple-900/40 dark:mix-blend-screen pointer-events-none" />
+      <div className="absolute top-[-10%] right-[-10%] w-[40rem] h-[40rem] rounded-full bg-blue-400/30 mix-blend-multiply filter blur-[120px] opacity-70 animate-blob animation-delay-2000 dark:bg-blue-900/40 dark:mix-blend-screen pointer-events-none" />
+      <div className="absolute bottom-[-10%] left-[20%] w-[40rem] h-[40rem] rounded-full bg-teal-400/30 mix-blend-multiply filter blur-[120px] opacity-70 animate-blob animation-delay-4000 dark:bg-teal-900/40 dark:mix-blend-screen pointer-events-none" />
+    </div>
   );
 }
