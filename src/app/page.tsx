@@ -268,9 +268,9 @@ export default function Home() {
             tags={[
               "React",
               "Socket.io",
-              "Canvas API",
-              "Nodejs",
-              "TailwindCSS",
+              "HTML5",
+              "NodeJS",
+              "Tailwind",
             ]}
             github="https://github.com/adeebik/Doodlezz"
             demo="https://eraser-frontend.onrender.com/"
@@ -280,7 +280,7 @@ export default function Home() {
           <ProjectCard
             title="PlaySync"
             description="Playlist migrator tool to transfer music libraries between Spotify and YouTube Music using platform APIs and matching algorithms."
-            tags={["Nextjs", "OAuth 2.0", "WebSockets", "Shadcn UI", "TailwindCSS"]}
+            tags={["NextJS", "Auth0", "Socket.io", "Shadcn UI", "Tailwind"]}
             github="https://github.com/adeebik/PlaySync"
             demo="https://playlist-transfer-silk.vercel.app/"
             image="/playsync-dark.png"
@@ -289,7 +289,7 @@ export default function Home() {
           <ProjectCard
             title="Mindly"
             description="Task management system with JWT authentication and PostgreSQL. Features a structured REST API and professional layout."
-            tags={["React", "Nodejs", "PostgreSQL", "JWT", "GSAP"]}
+            tags={["React", "NodeJS", "Postgres", "Auth0", "GSAP"]}
             github="https://github.com/adeebik/Mindly_Fe"
             demo="https://mindly-fe-five.vercel.app/"
             image="/mindly-mockup.png"
@@ -298,7 +298,7 @@ export default function Home() {
           <ProjectCard
             title="Chat-App"
             description="A real-time messaging platform where users can engage in seamless conversations and group chats."
-            tags={["React", "Nodejs", "MongoDB", "Cloudinary", "Socketio"]}
+            tags={["React", "NodeJS", "MongoDB", "Cloudinary", "Socket.io"]}
             github="https://github.com/adeebik/Chat-App_FE"
             demo="https://chat-app-fe-sepia.vercel.app/"
             image="/chat-app-mockup.png"

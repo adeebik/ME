@@ -102,26 +102,60 @@ export function ProjectCard({ title, description, image, hoverImage, tags, githu
 
           {/* Footer Tech stack */}
           <div className="flex flex-wrap gap-2 pt-4 border-t border-border/40">
-            {tags.map((tag) => (
-              <div 
-                key={tag} 
-                className="group/icon relative flex items-center justify-center p-2 bg-muted/30 border border-border/50 rounded-lg transition-transform hover:scale-110"
-              >
-                <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 opacity-0 group-hover/icon:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
-                  <span className="bg-background border border-border px-2 py-1 rounded-md text-[10px] font-bold shadow-xl whitespace-nowrap">
-                    {tag}
-                  </span>
+            {tags.map((tag) => {
+              const getIconUrl = (t: string) => {
+                const lowerTag = t.toLowerCase();
+                const skillSlug = lowerTag.replace(/[\s.]/g, '');
+                
+                // List of icons supported by SkillIcons based on the user-provided list
+                const supportedSkillIcons = [
+                  "react", "nextjs", "nodejs", "tailwind", "postgres", "html", "js", "ts", "mongodb", "express", "figma", "git", "github", "aws", "docker"
+                ];
+
+                if (supportedSkillIcons.includes(skillSlug)) {
+                  return `https://skillicons.dev/icons?i=${skillSlug}`;
+                }
+
+                // Fallback to SimpleIcons for missing ones or specific mappings
+                const simpleMapping: Record<string, string> = {
+                  "socket.io": "socketdotio",
+                  "socketio": "socketdotio",
+                  "shadcn ui": "shadcnui",
+                  "gsap": "greensock",
+                  "jwt": "jsonwebtokens",
+                  "auth0": "auth0",
+                  "oauth 2.0": "auth0",
+                  "html5": "html5",
+                  "canvas api": "canvas",
+                  "cloudinary": "cloudinary",
+                  "express": "express",
+                };
+
+                const simpleSlug = simpleMapping[lowerTag] || skillSlug;
+                return `https://cdn.simpleicons.org/${simpleSlug}`;
+              };
+
+              return (
+                <div 
+                  key={tag} 
+                  className="group/icon relative flex items-center justify-center p-2 bg-muted/30 border border-border/50 rounded-lg transition-transform hover:scale-110"
+                >
+                  <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 opacity-0 group-hover/icon:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                    <span className="bg-background border border-border px-2 py-1 rounded-md text-[10px] font-bold shadow-xl whitespace-nowrap">
+                      {tag}
+                    </span>
+                  </div>
+                  <Image 
+                    src={getIconUrl(tag)}
+                    alt={tag}
+                    width={20}
+                    height={20}
+                    className="grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+                    unoptimized
+                  />
                 </div>
-                <Image 
-                  src={`https://skillicons.dev/icons?i=${tag.toLowerCase().replace(/[\s.]/g, '')}`}
-                  alt={tag}
-                  width={20}
-                  height={20}
-                  className="grayscale opacity-70 group-hover/icon:grayscale-0 group-hover/icon:opacity-100 transition-all"
-                  unoptimized
-                />
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
