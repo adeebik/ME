@@ -220,7 +220,7 @@ export default function Home() {
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
-              href="https://drive.google.com/file/d/1EJHmzBoRR-ppT-_uGHNPHHKOPHwpH8hr/view?usp=sharing"
+              href="https://drive.google.com/file/d/1PSek2g5jhMm5Ax5FsfgMrFi54EDb2umS/view?usp=sharing"
               target="_blank"
               className="btn-secondary btn-sm"
             >
@@ -263,18 +263,35 @@ export default function Home() {
 
         <div className="grid lg:grid-cols-2  sm:grid-cols-1 gap-8">
           <ProjectCard
-            title="Mindly"
-            description="Your second brain, supercharged. Save links, videos, tweets, and ideas. Organize your knowledge in one place."
+            title="Doodlezz"
+            description="Real-time whiteboard drawing tool that synchronizes canvas strokes across users in real-time. Room-based system for instant collaboration."
             tags={[
-              "Nextjs",
-              "Typescript",
-              "PostgreSQL",
-              "Prisma",
+              "React",
+              "Socket.io",
+              "Canvas API",
+              "Nodejs",
               "TailwindCSS",
             ]}
+            github="https://github.com/adeebik/Doodlezz"
+            demo="https://eraser-frontend.onrender.com/"
+            image="/doodlezz-dark.png"
+            hoverImage="/doodlezz-light.png"
+          />
+          <ProjectCard
+            title="PlaySync"
+            description="Playlist migrator tool to transfer music libraries between Spotify and YouTube Music using platform APIs and matching algorithms."
+            tags={["Nextjs", "OAuth 2.0", "WebSockets", "Shadcn UI", "TailwindCSS"]}
+            github="https://github.com/adeebik/PlaySync"
+            demo="https://playlist-transfer-silk.vercel.app/"
+            image="/playsync-dark.png"
+            hoverImage="/playsync-light.png"
+          />
+          <ProjectCard
+            title="Mindly"
+            description="Task management system with JWT authentication and PostgreSQL. Features a structured REST API and professional layout."
+            tags={["React", "Nodejs", "PostgreSQL", "JWT", "GSAP"]}
             github="https://github.com/adeebik/Mindly_Fe"
             demo="https://mindly-fe-five.vercel.app/"
-            video="https://www.loom.com/share/abdf456ddfae4eb08687f7b74174b3ca"
             image="/mindly-mockup.png"
             hoverImage="/mindly-light.png"
           />
@@ -284,7 +301,6 @@ export default function Home() {
             tags={["React", "Nodejs", "MongoDB", "Cloudinary", "Socketio"]}
             github="https://github.com/adeebik/Chat-App_FE"
             demo="https://chat-app-fe-sepia.vercel.app/"
-            video="https://www.loom.com/share/4774a0dbeba946e8ae7b4708ab420a54"
             image="/chat-app-mockup.png"
             hoverImage="/chat-app-light.png"
           />
@@ -377,42 +393,28 @@ export default function Home() {
             },
             {
               company: "MARXRAY",
-              role: "Junior Software Engineer",
-              location: "Onsite",
-              period: "Jul 2024 — Jun 2025",
+              role: "Junior Software Developer Engineer",
+              location: "Dubai - Remote",
+              period: "Jul 2024 — Mar 2025",
               logo: "/marxray-logo.jpeg",
               points: [
-                "Developed and maintained several full-stack projects using React and Node.js",
-                "Optimized database queries and improved application performance by 30%",
-                "Collaborated with cross-functional teams to deliver high-quality features",
+                "Built web applications using React.js and Node.js, focusing on front-end performance and asset optimization.",
+                "Translated Figma wireframes into modular, reusable components to ensure design consistency.",
+                "Collaborated with the backend team to integrate REST APIs and improve data fetching efficiency.",
               ],
-              tech: ["React", "Nodejs", "MongoDB", "Express", "Docker"],
+              tech: ["React", "Nodejs", "REST APIs", "Figma"],
             },
             {
               company: "MARXRAY",
               role: "Software Developer Intern",
-              location: "Onsite",
+              location: "Dubai - Remote",
               period: "Jan 2024 — Jun 2024",
               logo: "/marxray-logo.jpeg",
               points: [
-                "Worked on core feature development and bug fixing",
-                "Gained hands-on experience with modern CI/CD pipelines and agile methodologies",
-                "Participated in code reviews and architectural discussions",
+                "Developed UI features for customer-facing dashboards using Next.js and Tailwind CSS.",
+                "Debugged and resolved front-end issues related to state management and cross-browser compatibility.",
               ],
-              tech: ["React", "Express", "PostgreSQL", "Git"],
-            },
-            {
-              company: "Top Chef Dubai",
-              role: "Front End Developer Intern",
-              location: "Onsite",
-              period: "Jun 2023 — Nov 2023",
-              logo: "/top-chef-logo.png",
-              points: [
-                "Led the redesign of the user dashboard, focusing on accessibility and responsive design",
-                "Collaborated with designers to implement pixel-perfect UIs",
-                "Integrated third-party APIs for seamless data flow",
-              ],
-              tech: ["React", "TailwindCSS", "Figma", "Bootstrap"],
+              tech: ["Nextjs", "TailwindCSS", "React", "Git"],
             },
           ].map((exp, idx) => (
             <ExperienceItem key={idx} exp={exp} isDefaultOpen={idx === 0} />
